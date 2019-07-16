@@ -1,0 +1,37 @@
+public class Singleton {
+/*
+    //懒汉式
+    //私有化构造方法
+    private Singleton(){}
+
+    private static  Singleton singleton = null;
+
+    //对外提供了一个获取实例的方法
+    public static Singleton getSingleton(){
+        if(singleton==null){
+            singleton = new Singleton();
+        }
+    return singleton;
+
+    }
+*/
+
+   //私有化构造
+    private Singleton(){}
+
+    //提供一个获取实例的方法，饿汉式写法
+    private static Singleton singleton = new Singleton();
+
+    //对外提供一个获取实例的方法,这个方法一般是静态
+    public static Singleton getInstance(){
+        return singleton;
+    }
+
+    public static void main(String[] args) {
+        Singleton intance = Singleton.getInstance();
+        Singleton intance2 = Singleton.getInstance();
+
+        System.out.println(intance);
+        System.out.println(intance2);
+    }
+}
